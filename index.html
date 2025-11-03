@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corinne's portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="desktop" id="desktop">
+        <div class="icons" id="icons">
+            <button class="desktop-icon" data-app="about" aria-label="About">
+                <img class="icon-img" src="images/blue-file.png" alt="About folder">
+                <div class="icon-label">About</div>
+            </button>
+
+            <button class="desktop-icon" data-app="projects" aria-label="Projects">
+                <img class="icon-img" src="images/green-file.png" alt="Projects folder">
+                <div class="icon-label">Projects</div>
+            </button>
+
+            <button class="desktop-icon" data-app="resume" aria-label="Resume">
+                <img class="icon-img" src="images/pink-file.png" alt="Resume folder">
+                <div class="icon-label">Resume</div>
+            </button>
+
+            <a href="https://github.com/CutieCorinne" class="desktop-icon" target="_blank" rel="noopener" aria-label="GitHub Profile">
+                <img class="icon-img" src="images/github.png" alt="GitHub">
+                <div class="icon-label">GitHub</div>
+            </a>
+
+            <a href="mailto:your.email@example.com" class="desktop-icon" aria-label="Email">
+                <img class="icon-img" src="images/letter.png" alt="Email">
+                <div class="icon-label">Email</div>
+            </a>
+        </div>
+
+        <template id="tpl-about">
+            <div class="window" data-app="about">
+                <div class="titlebar">
+                    <div class="title">About</div>
+                    <div class="controls">
+                        <button class="minimize" title="Minimize">—</button>
+                        <button class="close" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <h2>Hello, I'm Corinne!!</h2>
+                    <p>WIP</p>
+                    <p>Skills: HTML, CSS, and JavaScript!!</p>
+                </div>
+            </div>
+        </template>
+
+        <template id="tpl-projects">
+            <div class="window" data-app="projects">
+                <div class="titlebar">
+                    <div class="title">Projects</div>
+                    <div class="controls">
+                        <button class="minimize" title="Minimize">—</button>
+                        <button class="close" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <h2>WIP</h2>
+                    <ul>
+                        <li><strong>Project 1</strong> — description and link placeholder.</li>
+                    </ul>
+                </div>
+            </div>
+        </template>
+
+        <template id="tpl-resume">
+            <div class="window" data-app="resume">
+                <div class="titlebar">
+                    <div class="title">Resume</div>
+                    <div class="controls">
+                        <button class="minimize" title="Minimize">—</button>
+                        <button class="close" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <h2>Resume</h2>
+                    <p>WIP</p>
+                </div>
+            </div>
+        </template>
+
+        <template id="tpl-contact">
+            <div class="window" data-app="contact">
+                <div class="titlebar">
+                    <div class="title">Contact</div>
+                    <div class="controls">
+                        <button class="minimize" title="Minimize">—</button>
+                        <button class="close" title="Close">✕</button>
+                    </div>
+                </div>
+                <div class="content">
+                    <h2>Contact</h2>
+                    <p>Email: <a href="mailto:rinnychuuu@gmail.com">rinnychuuu@gmail.com</a></p>
+                    <p>Socials: WIP</p>
+                </div>
+            </div>
+        </template>
+
+        <div class="taskbar" id="taskbar">
+            <div class="start" aria-label="Start">
+                <svg width="16" height="16" viewBox="0 0 16 16">
+                    <path fill="currentColor" d="M7.3,0L0,1v6.5h7.3V0z M7.3,8.5H0V15l7.3,1V8.5z M8.7,0v7.5H16V0.1L8.7,0z M16,8.5H8.7v7.4l7.3-0.1 C16,15.8,16,8.5,16,8.5z"/>
+                </svg>
+            </div>
+            <div class="search-bar">
+                <img src="images/searchbar.png" alt="Search" class="search-img">
+            </div>
+            <div class="taskview">
+                <img src="images/taskview.png" alt="Taskview" class="taskview-img">
+            </div>
+            <div class="tray" id="tray"></div>
+            <div class="clock" id="clock" aria-live="polite"></div>
+        </div>
+    </div>
+    <script src="fun.js"></script>
+    
+</body>
+
+</html>

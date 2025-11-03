@@ -1,0 +1,151 @@
+:root{
+	--accent: #5b8cff;
+	--bg-1: #0f1724;
+	--bg-2: #11263b;
+	--glass: rgba(255,255,255,0.06);
+	--muted: #cbd5e1;
+	--window-bg: rgba(255,255,255,0.98);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Segoe UI, Roboto, system-ui, -apple-system, 'Segoe UI Emoji', 'Noto Color Emoji';color:#0b1220}
+body{
+	background: linear-gradient(180deg,var(--bg-1), var(--bg-2));
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+
+.desktop{
+	height:100vh;
+	width:100%;
+	position:relative;
+	overflow:hidden;
+}
+
+.desktop::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-image: url('images/rin.png'); 
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	opacity: 0.6; 
+	z-index: -1;
+}
+
+.desktop::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: radial-gradient(ellipse at 10% 10%, rgba(91,140,255,0.08), transparent 50%),
+				radial-gradient(ellipse at 90% 90%, rgba(0,0,0,0.12), transparent 50%);
+	z-index: -1;
+}
+
+.icons {
+    display: grid;
+    grid-template-columns: auto auto; 
+    column-gap: 24px;  
+    row-gap: 24px;    
+    padding: 28px;
+    margin-top: 40px;
+    width: fit-content;
+}
+
+.icons > *:nth-child(1) { grid-area: 1 / 1; }  
+.icons > *:nth-child(2) { grid-area: 2 / 1; }  
+.icons > *:nth-child(3) { grid-area: 3 / 1; }  
+
+.icons > *:nth-child(4) { grid-area: 1 / 2; }  
+.icons > *:nth-child(5) { grid-area: 2 / 2; }  
+
+.desktop-icon{
+	display:flex;flex-direction:column;align-items:center;justify-content:flex-start;
+	width:96px;height:96px;padding:6px;border-radius:8px;background:transparent;border:0;color:var(--muted);cursor:pointer;
+	transition:transform .12s ease, background .12s ease;
+}
+.desktop-icon:focus{outline:2px solid rgba(91,140,255,0.35);}
+.desktop-icon:hover{transform:translateY(-6px);}
+.icon-emoji{font-size:44px;text-shadow:0 2px 8px rgba(0,0,0,0.25);display:none}
+.icon-img{width:56px;height:56px;object-fit:contain;border-radius:6px;box-shadow:0 6px 18px rgba(2,6,23,0.35)}
+.icon-label{margin-top:6px;font-size:13px;text-align:center;color:#e6eef8}
+
+.window{
+	position:absolute;width:560px;max-width:calc(100% - 60px);height:360px;background:var(--window-bg);border-radius:8px;box-shadow:0 18px 40px rgba(2,6,23,0.6);overflow:hidden;top:80px;left:80px;
+	display:flex;flex-direction:column;border:1px solid rgba(11,17,32,0.06);
+}
+.titlebar{
+	height:36px;background:linear-gradient(180deg, rgba(0,0,0,0.03), rgba(255,255,255,0.02));display:flex;align-items:center;justify-content:space-between;padding:0 8px;cursor:grab;
+}
+.titlebar:active{cursor:grabbing}
+.title{font-weight:600;color:#091022}
+.controls button{border:0;background:transparent;padding:6px 8px;border-radius:4px;cursor:pointer}
+.controls button:hover{background:rgba(0,0,0,0.04)}
+.content{padding:16px;overflow:auto;color:#0b1220}
+
+.taskbar{
+	position:fixed;left:0;right:0;bottom:8px;margin:0 12px;height:44px;background:#371c23;display:flex;align-items:center;padding:4px 8px;border-radius:10px;gap:12px;box-shadow:0 8px 20px rgba(2,6,23,0.5);
+}
+.taskbar .start{
+    background:var(--glass);
+    padding:8px;
+    border-radius:6px;
+    color:#e8f0ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition: all 0.2s ease;
+}
+.taskbar .search-bar {
+    background: var(--glass);
+    border-radius: 6px;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    min-width: 200px;
+}
+.taskbar .search-img {
+    height: 24px;
+    width: auto;
+    opacity: 0.9;
+}
+
+.taskbar .taskview {
+    display: flex;
+    align-items: center;
+    padding: 6px;
+}
+
+.taskbar .taskview-img {
+    height: 24px;
+    width: auto;
+    mix-blend-mode: luminosity;
+    filter: brightness(1.5) contrast(1.2);
+}
+
+.taskbar .start:hover {
+    background:rgba(255,255,255,0.15);
+    transform: scale(1.05);
+}
+.taskbar .tray{display:flex;gap:8px;flex:1;align-items:center}
+.taskbar .tray .task-btn{background:transparent;border:0;padding:6px 10px;border-radius:6px;color:#dfe8fb;cursor:pointer}
+.taskbar .tray .task-btn.active{background:rgba(91,140,255,0.15)}
+.clock{min-width:80px;text-align:right;color:#dfe8fb;padding-right:8px;font-weight:600}
+
+@media (max-width:640px){
+	.icons{grid-template-columns:repeat(auto-fill, minmax(80px, 1fr));padding:12px}
+	.desktop-icon{width:72px;height:72px}
+	.window{width:calc(100% - 32px);left:16px;right:16px}
+	.icon-img{width:44px;height:44px}
+}
+
+
+.window{transition:transform .12s ease,box-shadow .12s ease}
+
