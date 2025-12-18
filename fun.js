@@ -122,5 +122,7 @@
 		}
 	});
 
+	window.createWindow = createWindow;
+
 })();
 
